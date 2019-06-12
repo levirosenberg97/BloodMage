@@ -1566,17 +1566,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 642301185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26dece264c06d7543aa14318fff369f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 40e2d6f5a6df79047ac6cafc6b1ff855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 50
+  playerStats: {fileID: 11400000, guid: a28a1d46f6dbb0046b29c052d7a6b815, type: 2}
   healthSlider: {fileID: 607283976}
-  strength: 15
-  defense: 15
-  spellPower: 30
-  speed: 15
-  target: {fileID: 0}
+  health: 0
 --- !u!114 &642301188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,12 +1776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectable: 0
-  health: 50
+  health: 0
   healthSlider: {fileID: 1936589829}
-  strength: 0
-  defense: 0
-  speed: 0
-  button: {fileID: 0}
+  stats: {fileID: 11400000, guid: be65b9be3ce5be5428567c0259590749, type: 2}
 --- !u!1 &762667728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,9 +3813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectable: 0
-  health: 50
+  health: 0
   healthSlider: {fileID: 572798121}
-  strength: 0
-  defense: 0
-  speed: 0
-  button: {fileID: 0}
+  stats: {fileID: 11400000, guid: be65b9be3ce5be5428567c0259590749, type: 2}

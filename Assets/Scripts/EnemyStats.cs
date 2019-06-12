@@ -5,23 +5,30 @@ using UnityEngine.UI;
 public class EnemyStats : MonoBehaviour
 {
     public bool selectable;
-    int maxHealth;
+    public int health;
 
     public Slider healthSlider;
 
-    PlayerStats stats;
+    public PlayerStats stats;
 
     private void Start()
     {
-        maxHealth = stats.health;
+        health = stats.maxHealth;
 
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = stats.health;
+        healthSlider.maxValue = health;
+        healthSlider.value = health;
     }
 
-    public void Test()
+    private void Update()
     {
-        Debug.Log("Hit");
+        if(health <= 0)
+        {
+            Death();
+        }
     }
 
+    void Death()
+    {
+        gameObject.SetActive(false);
+    }
 }

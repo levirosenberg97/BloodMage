@@ -5,15 +5,28 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    PlayerStats playerStats;
+    public PlayerStats playerStats;
     public Slider healthSlider;
-    int maxHealth;
+    public int health;
 
 
     private void Start()
     {
-        maxHealth = playerStats.health;
-        healthSlider.maxValue = playerStats.health;
-        healthSlider.value = playerStats.health;
+        health = playerStats.maxHealth;
+        healthSlider.maxValue = health;
+        healthSlider.value = health;
+    }
+
+    private void Update()
+    {
+        if(health <= 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        gameObject.SetActive(false);
     }
 }

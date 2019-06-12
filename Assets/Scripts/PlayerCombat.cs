@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public PlayerStats player;
+    public PlayerScript player;
     public Animator anim;
 
     public void PhysicalAttack(EnemyStats enemy)
     {
         //anim.SetBool("IsTargeted", true);
-        enemy.health -= player.strength;
+        enemy.health -= player.playerStats.strength;
         enemy.healthSlider.value = enemy.health;
+
+        anim.SetBool("IsAttacking", true);
     }
 
     public void MagicAttack(EnemyStats enemy)
     {
-        enemy.health -= player.spellPower;
-        player.health -= player.spellPower / 2;
+        enemy.health -= player.playerStats.spellPower;
+        player.health -= player.playerStats.spellPower / 2;
 
         enemy.healthSlider.value = enemy.health;
         player.healthSlider.value = player.health;
+
+        anim.SetBool("IsAttacking", true);
     }
 
     public void DefendYourself()
     {
         Debug.Log("Defense");
+    }
+
+    public void EnemyAttack(EnemyStats enemy)
+    {
+        player.health -= enemy.stats.strength;
+        player.healthSlider.value = player.health;
     }
 }
