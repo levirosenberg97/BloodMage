@@ -27,6 +27,11 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+
+    }
+
     void Death()
     {
         gameObject.SetActive(false);

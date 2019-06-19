@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public int maxHealth;
-
+    
     public int strength;
     public int defense;
     public int spellPower;

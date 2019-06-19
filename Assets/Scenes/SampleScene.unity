@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 642301187}
   anim: {fileID: 637138633}
+  battleOrder: []
 --- !u!4 &637138635
 Transform:
   m_ObjectHideFlags: 0
@@ -1535,7 +1536,7 @@ GameObject:
   - component: {fileID: 642301187}
   m_Layer: 5
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1706,7 +1707,7 @@ GameObject:
   - component: {fileID: 697572697}
   m_Layer: 5
   m_Name: Enemy02
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3743,7 +3744,7 @@ GameObject:
   - component: {fileID: 2104470511}
   m_Layer: 5
   m_Name: Enemy01
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

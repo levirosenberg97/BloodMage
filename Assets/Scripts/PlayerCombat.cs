@@ -7,9 +7,37 @@ public class PlayerCombat : MonoBehaviour
     public PlayerScript player;
     public Animator anim;
 
+    public List<PlayerStats> battleOrder;
+
+    private void Start()
+    {
+        battleOrder = new List<PlayerStats>();
+
+        battleOrder.Add(player.playerStats);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Damagable");
+
+        for (int i = 0; i < enemies.Length; ++i)
+        {
+            if(enemies[i].GetComponent<EnemyStats>() != null)
+            {
+                battleOrder.Add(enemies[i].GetComponent<EnemyStats>().stats);
+            }
+        }
+
+        ReorderList();
+    }
+
+    void ReorderList()
+    {
+        battleOrder.Sort(delegate (PlayerStats a, PlayerStats b)
+        {
+            return (b.speed).CompareTo(a.speed);
+        });
+    }
+
     public void PhysicalAttack(EnemyStats enemy)
     {
-        //anim.SetBool("IsTargeted", true);
         enemy.health -= player.playerStats.strength;
         enemy.healthSlider.value = enemy.health;
 
@@ -26,7 +54,7 @@ public class PlayerCombat : MonoBehaviour
 
         anim.SetBool("IsAttacking", true);
     }
-
+    
     public void DefendYourself()
     {
         Debug.Log("Defense");
@@ -36,5 +64,12 @@ public class PlayerCombat : MonoBehaviour
     {
         player.health -= enemy.stats.strength;
         player.healthSlider.value = player.health;
+        StartCoroutine(WaitForSeconds(4));
+        Debug.Log("Hit");
+    }
+
+    IEnumerator WaitForSeconds(float sec)
+    {
+        yield return new WaitForSeconds(sec);
     }
 }

@@ -15,4 +15,4 @@ MonoBehaviour:
   strength: 15
   defense: 15
   spellPower: 15
-  speed: 15
+  speed: 25
