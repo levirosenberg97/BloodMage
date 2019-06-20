@@ -262,11 +262,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 637138634}
-        m_MethodName: MagicAttack
+        m_MethodName: SetTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2104470511}
-          m_ObjectArgumentAssemblyTypeName: EnemyStats, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2104470507}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1355,6 +1355,7 @@ MonoBehaviour:
   player: {fileID: 642301187}
   anim: {fileID: 637138633}
   battleOrder: []
+  currentAttacker: {fileID: 0}
 --- !u!4 &637138635
 Transform:
   m_ObjectHideFlags: 0
@@ -1937,7 +1938,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Enemy 2
+  m_text: Enemy Two
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2718,11 +2719,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 637138634}
-        m_MethodName: MagicAttack
+        m_MethodName: SetTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 697572697}
-          m_ObjectArgumentAssemblyTypeName: EnemyStats, Assembly-CSharp
+          m_ObjectArgument: {fileID: 697572693}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3478,11 +3479,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 637138634}
-        m_MethodName: PhysicalAttack
+        m_MethodName: SetTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2104470511}
-          m_ObjectArgumentAssemblyTypeName: EnemyStats, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2104470507}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3685,11 +3686,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 637138634}
-        m_MethodName: PhysicalAttack
+        m_MethodName: SetTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 697572697}
-          m_ObjectArgumentAssemblyTypeName: EnemyStats, Assembly-CSharp
+          m_ObjectArgument: {fileID: 697572693}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

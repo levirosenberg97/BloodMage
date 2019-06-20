@@ -9,6 +9,8 @@ public class PlayerCombat : MonoBehaviour
 
     public List<PlayerStats> battleOrder;
 
+    public PlayerStats currentAttacker;
+
     private void Start()
     {
         battleOrder = new List<PlayerStats>();
@@ -36,9 +38,15 @@ public class PlayerCombat : MonoBehaviour
         });
     }
 
+    public void SetTarget(GameObject target)
+    {
+        player.playerStats.target = target;
+        anim.SetBool("StartCombatOrder", true);
+    }
+
     public void PhysicalAttack(EnemyStats enemy)
     {
-        enemy.health -= player.playerStats.strength;
+        enemy.health -= player.playerStats.strength + player.playerStats.physicalAttack.attackPower;
         enemy.healthSlider.value = enemy.health;
 
         anim.SetBool("IsAttacking", true);
@@ -46,8 +54,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void MagicAttack(EnemyStats enemy)
     {
-        enemy.health -= player.playerStats.spellPower;
-        player.health -= player.playerStats.spellPower / 2;
+        enemy.health -= player.playerStats.spellPower + player.playerStats.magicAttack.attackPower;
+        player.health -= (player.playerStats.spellPower + player.playerStats.magicAttack.attackPower) / 2;
 
         enemy.healthSlider.value = enemy.health;
         player.healthSlider.value = player.health;
@@ -64,12 +72,7 @@ public class PlayerCombat : MonoBehaviour
     {
         player.health -= enemy.stats.strength;
         player.healthSlider.value = player.health;
-        StartCoroutine(WaitForSeconds(4));
-        Debug.Log("Hit");
-    }
 
-    IEnumerator WaitForSeconds(float sec)
-    {
-        yield return new WaitForSeconds(sec);
+        Debug.Log("Hit");
     }
 }

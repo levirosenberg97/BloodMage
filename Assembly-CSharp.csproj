@@ -61,12 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyAttack.cs" />
-    <Compile Include="Assets\HealthRemoval.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\HealthRemoval.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\RunAttack.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\TurnManager.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Attacks\Attacks.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\stats\PlayerStats.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
