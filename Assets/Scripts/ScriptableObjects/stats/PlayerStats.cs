@@ -14,6 +14,8 @@ public class PlayerStats : ScriptableObject
 
     public GameObject target;
 
+    public Attacks currentAttack;
+
     public enum PlayerType { Player, MagicEnemy, PhysicalEnemy};
     public PlayerType type;
 

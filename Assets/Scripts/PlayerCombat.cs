@@ -44,23 +44,14 @@ public class PlayerCombat : MonoBehaviour
         anim.SetBool("StartCombatOrder", true);
     }
 
-    public void PhysicalAttack(EnemyStats enemy)
+    public void PhysicalAttack()
     {
-        enemy.health -= player.playerStats.strength + player.playerStats.physicalAttack.attackPower;
-        enemy.healthSlider.value = enemy.health;
-
-        anim.SetBool("IsAttacking", true);
+        player.playerStats.currentAttack = player.playerStats.physicalAttack;
     }
 
-    public void MagicAttack(EnemyStats enemy)
+    public void MagicAttack()
     {
-        enemy.health -= player.playerStats.spellPower + player.playerStats.magicAttack.attackPower;
-        player.health -= (player.playerStats.spellPower + player.playerStats.magicAttack.attackPower) / 2;
-
-        enemy.healthSlider.value = enemy.health;
-        player.healthSlider.value = player.health;
-
-        anim.SetBool("IsAttacking", true);
+        player.playerStats.currentAttack = player.playerStats.magicAttack;
     }
     
     public void DefendYourself()

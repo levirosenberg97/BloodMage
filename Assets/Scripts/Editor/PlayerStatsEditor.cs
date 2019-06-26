@@ -13,6 +13,7 @@ public class PlayerStatsEditor : Editor
 
     public SerializedProperty  
         target_Prop,
+        currentAttack_Prop,
         type_Prop,
         physicalAttack_Prop,
         magicAttack_Prop;
@@ -29,6 +30,7 @@ public class PlayerStatsEditor : Editor
         target_Prop         = serializedObject.FindProperty("target");
 
         //Setup the SerializedProperties
+        currentAttack_Prop = serializedObject.FindProperty("currentAttack");
         type_Prop           = serializedObject.FindProperty("type");
         physicalAttack_Prop = serializedObject.FindProperty("physicalAttack");
         magicAttack_Prop    = serializedObject.FindProperty("magicAttack");
@@ -54,17 +56,20 @@ public class PlayerStatsEditor : Editor
         {
             case PlayerStats.PlayerType.Player:
 
+                EditorGUILayout.ObjectField(currentAttack_Prop, new GUIContent("Current Attack"));
                 EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("Physical Attack"));
                 EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("Magic Attack"));
 
                 break;
 
             case PlayerStats.PlayerType.MagicEnemy:
+                currentAttack_Prop = magicAttack_Prop;
                 EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("magicAttack"));
 
                 break;
 
             case PlayerStats.PlayerType.PhysicalEnemy:
+                currentAttack_Prop = physicalAttack_Prop;
                 EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("physicalAttack"));
 
                 break;

@@ -272,6 +272,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 637138634}
+        m_MethodName: MagicAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &85371136
@@ -1352,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acbc77df478cd143ae78e976e5e4706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 642301187}
+  player: {fileID: 0}
   anim: {fileID: 637138633}
   battleOrder: []
   currentAttacker: {fileID: 0}
@@ -1568,12 +1579,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 642301185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e2d6f5a6df79047ac6cafc6b1ff855, type: 3}
+  m_Script: {fileID: 11500000, guid: 093411afe5fc1804c9cbcb3e215afc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: a28a1d46f6dbb0046b29c052d7a6b815, type: 2}
-  healthSlider: {fileID: 607283976}
+  stats: {fileID: 0}
   health: 0
+  healthSlider: {fileID: 0}
+  target: {fileID: 0}
 --- !u!114 &642301188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,13 +1786,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 697572693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caacf123b63e10149b083baa864825c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 093411afe5fc1804c9cbcb3e215afc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectable: 0
-  health: 0
-  healthSlider: {fileID: 1936589829}
   stats: {fileID: 11400000, guid: be65b9be3ce5be5428567c0259590749, type: 2}
+  health: 0
+  healthSlider: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &762667728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,6 +2741,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 637138634}
+        m_MethodName: MagicAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1301639265
@@ -3489,6 +3512,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 637138634}
+        m_MethodName: PhysicalAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1856909639
@@ -3696,6 +3730,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 637138634}
+        m_MethodName: PhysicalAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1976369235
@@ -3811,10 +3856,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2104470507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caacf123b63e10149b083baa864825c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 093411afe5fc1804c9cbcb3e215afc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectable: 0
-  health: 0
-  healthSlider: {fileID: 572798121}
   stats: {fileID: 11400000, guid: be65b9be3ce5be5428567c0259590749, type: 2}
+  health: 0
+  healthSlider: {fileID: 0}
+  target: {fileID: 0}
