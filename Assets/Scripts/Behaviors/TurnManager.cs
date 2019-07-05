@@ -8,7 +8,7 @@ public class TurnManager : StateMachineBehaviour
     PlayerCombat combatManager;
 
     [SerializeField]
-    List<PlayerStats> players;
+    List<TargetObject> players;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
@@ -17,7 +17,7 @@ public class TurnManager : StateMachineBehaviour
             combatManager = FindObjectOfType<PlayerCombat>();
         }
         
-        players = new List<PlayerStats>();
+        //players = new List<TargetObject>();
         players = combatManager.battleOrder;  
         counter++;
 

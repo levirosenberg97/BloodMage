@@ -10,7 +10,7 @@ public class TargetObject : MonoBehaviour
     public int health;
     public Slider healthSlider;
 
-    public GameObject target;
+    public TargetObject target;
 
     private void Start()
     {

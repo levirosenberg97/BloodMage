@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public PlayerScript player;
+    public TargetObject player;
     public Animator anim;
 
-    public List<PlayerStats> battleOrder;
+    public List<TargetObject> battleOrder;
 
-    public PlayerStats currentAttacker;
+    public TargetObject currentAttacker;
 
     private void Start()
     {
-        battleOrder = new List<PlayerStats>();
+        battleOrder = new List<TargetObject>();
 
-        battleOrder.Add(player.playerStats);
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Damagable");
+        TargetObject[] enemies = FindObjectsOfType<TargetObject>();
 
         for (int i = 0; i < enemies.Length; ++i)
         {
-            if(enemies[i].GetComponent<EnemyStats>() != null)
+            if(enemies[i].GetComponent<TargetObject>() != null)
             {
-                battleOrder.Add(enemies[i].GetComponent<EnemyStats>().stats);
+                battleOrder.Add(enemies[i].GetComponent<TargetObject>());
             }
         }
 
@@ -32,26 +30,27 @@ public class PlayerCombat : MonoBehaviour
 
     void ReorderList()
     {
-        battleOrder.Sort(delegate (PlayerStats a, PlayerStats b)
+        battleOrder.Sort(delegate (TargetObject a, TargetObject b)
         {
-            return (b.speed).CompareTo(a.speed);
+            return (b.stats.speed).CompareTo(a.stats.speed);
         });
     }
 
-    public void SetTarget(GameObject target)
+    public void SetTarget(TargetObject target)
     {
-        player.playerStats.target = target;
+        player.target = target;
         anim.SetBool("StartCombatOrder", true);
     }
 
     public void PhysicalAttack()
     {
-        player.playerStats.currentAttack = player.playerStats.physicalAttack;
+        player.stats.currentAttack = player.stats.physicalAttack;
     }
 
     public void MagicAttack()
     {
-        player.playerStats.currentAttack = player.playerStats.magicAttack;
+        player.health -= player.stats.magicAttack.attackPower / 2;
+        player.stats.currentAttack = player.stats.magicAttack;
     }
     
     public void DefendYourself()
@@ -59,7 +58,7 @@ public class PlayerCombat : MonoBehaviour
         Debug.Log("Defense");
     }
 
-    public void EnemyAttack(EnemyStats enemy)
+    public void EnemyAttack(TargetObject enemy)
     {
         player.health -= enemy.stats.strength;
         player.healthSlider.value = player.health;

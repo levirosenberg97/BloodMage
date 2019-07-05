@@ -12,7 +12,6 @@ public class PlayerStatsEditor : Editor
 
 
     public SerializedProperty  
-        target_Prop,
         currentAttack_Prop,
         type_Prop,
         physicalAttack_Prop,
@@ -27,10 +26,9 @@ public class PlayerStatsEditor : Editor
         spellPower_Prop     = serializedObject.FindProperty("spellPower").intValue;
         speed_Prop          = serializedObject.FindProperty("speed").intValue;
 
-        target_Prop         = serializedObject.FindProperty("target");
 
         //Setup the SerializedProperties
-        currentAttack_Prop = serializedObject.FindProperty("currentAttack");
+        currentAttack_Prop  = serializedObject.FindProperty("currentAttack");
         type_Prop           = serializedObject.FindProperty("type");
         physicalAttack_Prop = serializedObject.FindProperty("physicalAttack");
         magicAttack_Prop    = serializedObject.FindProperty("magicAttack");
@@ -44,7 +42,7 @@ public class PlayerStatsEditor : Editor
         spellPower_Prop = EditorGUILayout.IntField("Spell Power", spellPower_Prop);
         speed_Prop = EditorGUILayout.IntField("Speed", speed_Prop);
 
-        EditorGUILayout.ObjectField(target_Prop, new GUIContent("Target"));
+        EditorGUILayout.ObjectField(currentAttack_Prop, new GUIContent("Current Attack"));
 
         serializedObject.Update();
 
@@ -56,7 +54,6 @@ public class PlayerStatsEditor : Editor
         {
             case PlayerStats.PlayerType.Player:
 
-                EditorGUILayout.ObjectField(currentAttack_Prop, new GUIContent("Current Attack"));
                 EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("Physical Attack"));
                 EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("Magic Attack"));
 
