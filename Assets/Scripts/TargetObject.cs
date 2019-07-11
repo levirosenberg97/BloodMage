@@ -9,6 +9,7 @@ public class TargetObject : MonoBehaviour
 
     public int health;
     public Slider healthSlider;
+    public int defending = 1;
 
     public TargetObject target;
 

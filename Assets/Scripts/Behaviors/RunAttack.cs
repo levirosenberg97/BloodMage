@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RunAttack : StateMachineBehaviour
-{
-    [SerializeField]
+{ 
     PlayerCombat combatManager;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -15,17 +14,50 @@ public class RunAttack : StateMachineBehaviour
         TargetObject currentAttacker = combatManager.currentAttacker;
         TargetObject target = currentAttacker.target;
 
-        if(currentAttack.isMagic == true)
+        if(currentAttacker.defending > 1)
         {
-            target.health -= (currentAttack.attackPower + ( currentAttacker.stats.spellPower - target.stats.defense));
+            currentAttacker.stats.currentAttack = null;
+            animator.SetTrigger("isDefending");
         }
 
-        if (currentAttack.isPhysical == true)
+        if (currentAttack != null && currentAttack.isMagic == true)
         {
-            target.health -= (currentAttack.attackPower + (currentAttacker.stats.strength - target.stats.defense));
+            target.health -= (currentAttack.attackPower * currentAttacker.stats.spellPower / (target.stats.defense * target.defending));
+            target.healthSlider.value = target.health;
+
+            if (target.stats.type.Equals(PlayerStats.PlayerType.Player) && target.health <= 0)
+            {
+                animator.SetTrigger("isDead");
+            }
+            //else if(target.health <= 0)
+            //{
+                
+            //}
+            else
+            {
+                animator.SetTrigger("DealDamage");
+            }
         }
 
-        animator.SetTrigger("DealDamage");
+        if (currentAttack != null && currentAttack.isPhysical == true)
+        {
+            target.health -= (currentAttack.attackPower * currentAttacker.stats.strength / (target.stats.defense * target.defending));
+            target.healthSlider.value = target.health;
+
+            if (target.stats.type.Equals(PlayerStats.PlayerType.Player) && target.health <= 0)
+            {
+                animator.SetTrigger("isDead");
+            }
+            //else if(target.health <= 0)
+            //{
+
+            //}
+            else
+            {
+                animator.SetTrigger("DealDamage");
+            }
+        }
+
     }
 
 }

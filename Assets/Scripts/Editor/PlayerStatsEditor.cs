@@ -1,5 +1,5 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEditor;
 
 [CustomEditor(typeof(PlayerStats)), CanEditMultipleObjects]
 public class PlayerStatsEditor : Editor
@@ -16,62 +16,56 @@ public class PlayerStatsEditor : Editor
         type_Prop,
         physicalAttack_Prop,
         magicAttack_Prop;
+ 
 
-    void OnEnable()
-    {
-        //SetUp Default Stats
-        maxHealth_Prop      = serializedObject.FindProperty("maxHealth").intValue;
-        strength_Prop       = serializedObject.FindProperty("strength").intValue;
-        defense_Prop        = serializedObject.FindProperty("defense").intValue;
-        spellPower_Prop     = serializedObject.FindProperty("spellPower").intValue;
-        speed_Prop          = serializedObject.FindProperty("speed").intValue;
-
-
-        //Setup the SerializedProperties
-        currentAttack_Prop  = serializedObject.FindProperty("currentAttack");
-        type_Prop           = serializedObject.FindProperty("type");
-        physicalAttack_Prop = serializedObject.FindProperty("physicalAttack");
-        magicAttack_Prop    = serializedObject.FindProperty("magicAttack");
-    }
 
     public override void OnInspectorGUI()
     {
-        maxHealth_Prop = EditorGUILayout.IntField("Max Health", maxHealth_Prop);
-        strength_Prop = EditorGUILayout.IntField("Strength", strength_Prop);
-        defense_Prop = EditorGUILayout.IntField("Defense", defense_Prop);
-        spellPower_Prop = EditorGUILayout.IntField("Spell Power", spellPower_Prop);
-        speed_Prop = EditorGUILayout.IntField("Speed", speed_Prop);
-
-        EditorGUILayout.ObjectField(currentAttack_Prop, new GUIContent("Current Attack"));
-
         serializedObject.Update();
 
-        EditorGUILayout.PropertyField(type_Prop);
 
-        PlayerStats.PlayerType type = (PlayerStats.PlayerType)type_Prop.enumValueIndex;
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("maxHealth"));       
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("strength"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("defense"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("spellPower"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("currentAttack"));
+
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("type"));
+
+        PlayerStats.PlayerType type = (PlayerStats.PlayerType)serializedObject.FindProperty("type").enumValueIndex;
 
         switch (type)
         {
             case PlayerStats.PlayerType.Player:
 
-                EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("Physical Attack"));
-                EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("Magic Attack"));
+                //EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("Physical Attack"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("physicalAttack"));
+
+
+                //EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("Magic Attack"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("magicAttack"));
 
                 break;
 
             case PlayerStats.PlayerType.MagicEnemy:
                 currentAttack_Prop = magicAttack_Prop;
-                EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("magicAttack"));
+                //EditorGUILayout.ObjectField(magicAttack_Prop, new GUIContent("magicAttack"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("magicAttack"));
 
                 break;
 
             case PlayerStats.PlayerType.PhysicalEnemy:
                 currentAttack_Prop = physicalAttack_Prop;
-                EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("physicalAttack"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("physicalAttack"));
+                //EditorGUILayout.ObjectField(physicalAttack_Prop, new GUIContent("physicalAttack"));
 
                 break;
+
         }
 
-        serializedObject.ApplyModifiedProperties();
+                serializedObject.ApplyModifiedProperties();
     }
 }

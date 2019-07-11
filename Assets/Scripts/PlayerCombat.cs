@@ -11,17 +11,19 @@ public class PlayerCombat : MonoBehaviour
 
     public TargetObject currentAttacker;
 
+    //public bool isDefending;
+
     private void Start()
     {
         battleOrder = new List<TargetObject>();
 
-        TargetObject[] enemies = FindObjectsOfType<TargetObject>();
+        TargetObject[] targets = FindObjectsOfType<TargetObject>();
 
-        for (int i = 0; i < enemies.Length; ++i)
+        for (int i = 0; i < targets.Length; ++i)
         {
-            if(enemies[i].GetComponent<TargetObject>() != null)
+            if(targets[i].GetComponent<TargetObject>() != null)
             {
-                battleOrder.Add(enemies[i].GetComponent<TargetObject>());
+                battleOrder.Add(targets[i].GetComponent<TargetObject>());
             }
         }
 
@@ -55,14 +57,7 @@ public class PlayerCombat : MonoBehaviour
     
     public void DefendYourself()
     {
-        Debug.Log("Defense");
-    }
-
-    public void EnemyAttack(TargetObject enemy)
-    {
-        player.health -= enemy.stats.strength;
-        player.healthSlider.value = player.health;
-
-        Debug.Log("Hit");
+        player.defending = 2;
+        anim.SetBool("StartCombatOrder", true);
     }
 }

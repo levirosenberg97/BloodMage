@@ -21,14 +21,21 @@ public class TurnManager : StateMachineBehaviour
         players = combatManager.battleOrder;  
         counter++;
 
-        if(counter > players.Count)
+
+        if (counter > players.Count)
         {
             counter = 0;
+            foreach (TargetObject player in players)
+            {
+                player.defending = 1;
+            }
             animator.SetBool("StartCombatOrder", false);
         }
+        else
+        {
+            combatManager.currentAttacker = players[counter - 1];
 
-        combatManager.currentAttacker = players[counter - 1];
-
-        animator.SetTrigger("NextAttack");
+            animator.SetTrigger("NextAttack");
+        }
     }
 }

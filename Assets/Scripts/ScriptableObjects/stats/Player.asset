@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   maxHealth: 50
-  strength: 15
-  defense: 15
+  strength: 20
+  defense: 25
   spellPower: 25
   speed: 15
+  currentAttack: {fileID: 11400000, guid: 12920c2d7c2a1ea418fb810d49741cc1, type: 2}
   type: 0
   physicalAttack: {fileID: 11400000, guid: 12920c2d7c2a1ea418fb810d49741cc1, type: 2}
   magicAttack: {fileID: 11400000, guid: 017825de7224c4f4f8ea10a89493ff48, type: 2}

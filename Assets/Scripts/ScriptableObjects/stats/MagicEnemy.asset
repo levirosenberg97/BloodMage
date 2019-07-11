@@ -16,6 +16,7 @@ MonoBehaviour:
   defense: 15
   spellPower: 15
   speed: 25
+  currentAttack: {fileID: 11400000, guid: 017825de7224c4f4f8ea10a89493ff48, type: 2}
   type: 1
   physicalAttack: {fileID: 0}
   magicAttack: {fileID: 11400000, guid: 017825de7224c4f4f8ea10a89493ff48, type: 2}

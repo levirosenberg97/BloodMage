@@ -25,10 +25,8 @@ public class HealthRemoval : StateMachineBehaviour
         }
         else
         {
-            if(combatManager.battleOrder[counter - 1])
-            animator.SetBool("EnemyAttacking", true);
+            timer = maxTimer;
+            animator.SetTrigger("CheckTurnManager");
         }
-    }
-
-    
+    }    
 }
