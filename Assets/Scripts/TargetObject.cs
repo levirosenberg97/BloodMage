@@ -7,6 +7,7 @@ public class TargetObject : MonoBehaviour
 {
     public PlayerStats stats;
 
+    public int newHealth;
     public int health;
     public Slider healthSlider;
     public int defending = 1;

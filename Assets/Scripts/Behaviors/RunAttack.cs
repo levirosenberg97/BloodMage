@@ -22,40 +22,19 @@ public class RunAttack : StateMachineBehaviour
 
         if (currentAttack != null && currentAttack.isMagic == true)
         {
-            target.health -= (currentAttack.attackPower * currentAttacker.stats.spellPower / (target.stats.defense * target.defending));
-            target.healthSlider.value = target.health;
+            target.newHealth = target.health - (currentAttack.attackPower * currentAttacker.stats.spellPower / (target.stats.defense * target.defending));
 
-            if (target.stats.type.Equals(PlayerStats.PlayerType.Player) && target.health <= 0)
-            {
-                animator.SetTrigger("isDead");
-            }
-            //else if(target.health <= 0)
-            //{
-                
-            //}
-            else
-            {
-                animator.SetTrigger("DealDamage");
-            }
+
+            animator.SetTrigger("DealDamage");
+
         }
 
         if (currentAttack != null && currentAttack.isPhysical == true)
         {
-            target.health -= (currentAttack.attackPower * currentAttacker.stats.strength / (target.stats.defense * target.defending));
-            target.healthSlider.value = target.health;
+            target.newHealth = target.health - (currentAttack.attackPower * currentAttacker.stats.strength / (target.stats.defense * target.defending));
 
-            if (target.stats.type.Equals(PlayerStats.PlayerType.Player) && target.health <= 0)
-            {
-                animator.SetTrigger("isDead");
-            }
-            //else if(target.health <= 0)
-            //{
+            animator.SetTrigger("DealDamage");
 
-            //}
-            else
-            {
-                animator.SetTrigger("DealDamage");
-            }
         }
 
     }

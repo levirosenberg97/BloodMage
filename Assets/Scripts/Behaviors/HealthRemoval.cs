@@ -8,25 +8,38 @@ public class HealthRemoval : StateMachineBehaviour
     public float timer;
     float maxTimer;
     PlayerCombat combatManager;
-
+    TargetObject currentAttacker;
+    TargetObject target;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         maxTimer = timer;
         counter++;
         combatManager = FindObjectOfType<PlayerCombat>();
+
+        currentAttacker = combatManager.currentAttacker;
+        target = currentAttacker.target;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if(timer > 0)
+        if(target.health > target.newHealth)
         {
-            timer -= Time.deltaTime;
+            target.health--;
+            target.healthSlider.value = target.health;
         }
         else
         {
-            timer = maxTimer;
-            animator.SetTrigger("CheckTurnManager");
+            if (target.health <= 0)
+            {
+                target.health = target.newHealth;
+                target.healthSlider.value = target.health;
+                animator.SetTrigger("isDead");
+            }
+            else
+            {
+                animator.SetTrigger("CheckTurnManager");
+            }
         }
     }    
 }
